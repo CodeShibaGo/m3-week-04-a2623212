@@ -38,7 +38,7 @@ def generate_response(prompt, role="user"):
 def callback():
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
-
+    print('callback')
     # get request body as text
     body = request.get_data(as_text=True)
     app.logger.info("Request body: " + body)
@@ -54,6 +54,7 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessageContent)
 def handle_message(event):
+    print(event)
     with ApiClient(configuration) as api_client:
         line_bot_api = MessagingApi(api_client)
         line_bot_api.reply_message_with_http_info(
