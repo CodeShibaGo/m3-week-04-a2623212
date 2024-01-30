@@ -42,7 +42,7 @@ def handle_message(event):
         ]
         )
         print(completion)
-        print(completion.choices[0].message)
+        print(completion['choices'][0]['message']['content'])
         # text= completion['choices'][0]['message']['content']
         text="this is AI text"
     else:
