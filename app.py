@@ -41,7 +41,7 @@ def handle_message(event):
         ]
         )
         print(completion.choices[0].message)
-        text= response['choices'][0]['message']['content']
+        text= ['choices'][0]['message']['content']
     else:
         # 原本的回覆
         text=event.message.text
