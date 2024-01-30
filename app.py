@@ -32,7 +32,8 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     # 加上openAI的回覆
-    if event.message.text == 'Are you AI?':
+    if event.message.text == 'ai':
+        print("Here is AI start!")
         completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
@@ -40,8 +41,10 @@ def handle_message(event):
             {"role": "user", "content": "Hello!"}
         ]
         )
+        print(completion)
         print(completion.choices[0].message)
         # text= completion['choices'][0]['message']['content']
+        text="this is AI text"
     else:
         # 原本的回覆
         text=event.message.text
