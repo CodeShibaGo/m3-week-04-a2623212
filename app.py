@@ -38,7 +38,7 @@ def handle_message(event):
         completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "system", "content": "你是一個精通英文、正體中文、日文的公司秘書"},
             {"role": "user", "content": event.message.text},
         ]
         )
